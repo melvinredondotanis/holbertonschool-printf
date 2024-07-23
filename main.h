@@ -13,8 +13,8 @@
 
 typedef struct format_spec
 {
-	char f;
-	void (*form)(va_list);
+	char spec;
+	void (*func)(va_list);
 } format_spec;
 
 int put_s(va_list args);
