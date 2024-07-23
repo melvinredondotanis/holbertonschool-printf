@@ -13,13 +13,12 @@ int _printf(const char *format, ...)
 	int j = 0;
 	va_list args;
 
-	format_t forms[] = {
+	format_spec forms[] = {
 		{'d', put_d},
-		{'s', put_str},
-		{'c', put_str},
+		{'s', put_s},
+		{'c', put_s},
 		{'i', put_d},
-		{'\0', NULL}
-	};
+		{'\0', NULL}};
 
 	va_start(args, format);
 
