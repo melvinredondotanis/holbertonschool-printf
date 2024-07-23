@@ -9,6 +9,7 @@
 int _printf(const char *format, ...)
 {
 	int i = 0, j = 0, count = 0;
+
 	va_list args;
 
 	format_spec forms[] = {
@@ -18,17 +19,27 @@ int _printf(const char *format, ...)
 		{'\0', NULL}};
 
 	va_start(args, format);
+
 	while (format[i])
 	{
-		if (format[i] == '%' && format[i + 1] == '%')
+		if (format[i] == '\\' && format[i + 1] == '%')
 		{
-			i++;
-			count++;
+			_putchar('\\');
 			_putchar('%');
+			count += 2;
+			i += 2;
+			continue;
 		}
 		else if (format[i] == '%')
 		{
 			i++;
+			if (format[i] == '%')
+			{
+				_putchar('%');
+				count++;
+				i++;
+				continue;
+			}
 			for (j = 0; forms[j].spec; j++)
 			{
 				if (format[i] == forms[j].spec)
