@@ -7,9 +7,9 @@
 
 typedef struct
 {
-	char spec;
-	void (*func)(va_list *args);
-} format_spec;
+	char f;
+	void (*func)(va_list);
+} format_t;
 
 int put_c(va_list *args);
 int put_s(va_list *args);
