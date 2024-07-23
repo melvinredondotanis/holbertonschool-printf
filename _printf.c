@@ -9,6 +9,7 @@
 int _printf(const char *format, ...)
 {
 	int i = 0;
+	int x = 0;
 	int j = 0;
 	va_list args;
 
@@ -16,7 +17,6 @@ int _printf(const char *format, ...)
 		{'d', put_d},
 		{'s', put_s},
 		{'c', put_s},
-		{'i', put_i},
 		{'\0', NULL}};
 
 	va_start(args, format);
@@ -30,16 +30,17 @@ int _printf(const char *format, ...)
 			{
 				if (forms[j].spec == format[i])
 				{
-					forms[j].func(args);
+					forms[j].form(args);
 					break;
 				}
 			}
 		}
 		else
-			putchar(format[i]);
+			_putchar(format[i]);
+		x++;
 		i++;
 
 	}
 	va_end(args);
-	return (0);
+	return (x);
 }

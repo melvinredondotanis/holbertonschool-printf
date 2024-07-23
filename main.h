@@ -14,7 +14,7 @@
 typedef struct format_spec
 {
 	char spec;
-	void (*func)(va_list);
+	int (*form)(va_list);
 } format_spec;
 
 int put_s(va_list args);
