@@ -26,11 +26,11 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			for (; forms[j].f; j++)
+			for (; forms[j].spec; j++)
 			{
-				if (forms[j].f == format[i])
+				if (forms[j].spec == format[i])
 				{
-					forms[j].form(args);
+					forms[j].func(args);
 					break;
 				}
 			}
