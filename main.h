@@ -8,7 +8,7 @@
 typedef struct
 {
 	char f;
-	void (*func)(va_list);
+	void (*form)(va_list);
 } format_t;
 
 int put_c(va_list *args);
