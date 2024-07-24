@@ -8,6 +8,7 @@
 int put_c(va_list args)
 {
 	char c = va_arg(args, int);
+
 	_putchar(c);
 	return (1);
 }
@@ -79,6 +80,37 @@ int put_d(va_list args)
 			count++;
 		}
 	}
+
+	return (count);
+}
+
+/**
+ * put_b - function that prints a binary number
+ * @args: arguments to print
+ * Return: number of characters printed
+ */
+int put_b(va_list args)
+{
+	int n = va_arg(args, int);
+	int i = 0, j = 0, count = 0;
+
+	int binary[32];
+
+	if (n == 0)
+	{
+		_putchar('0');
+		return (i);
+	}
+
+	while (n > 0)
+	{
+		binary[i] = n % 2;
+		n = n / 2;
+		i++;
+	}
+
+	for (j = i - 1; j >= 0; j--)
+		count += _printf("%d", binary[j]);
 
 	return (count);
 }
