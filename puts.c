@@ -91,7 +91,7 @@ int put_d(va_list args)
  */
 int put_b(va_list args)
 {
-	int n = va_arg(args, int);
+	int n = va_arg(args, unsigned int);
 	int i = 0, j = 0, count = 0;
 
 	int binary[32];
