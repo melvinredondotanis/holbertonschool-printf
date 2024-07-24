@@ -1,6 +1,24 @@
 #include "main.h"
 
 /**
+ * check_format - function that checks if a character is a format specifier
+ * @format: character to check
+ * Return: format specifier or 0 if not found
+ */
+char check_format(char format)
+{
+	int i;
+	char types[4] = {'c', 's', 'd', 'i'};
+
+	for (i = 0; i < 4; i++)
+	{
+		if (format == types[i])
+			return (types[i]);
+	}
+	return (0);
+}
+
+/**
  * _printf - function that prints a formatted string
  * @format: string to print
  * Return: number of characters printed
@@ -9,43 +27,40 @@
 int _printf(const char *format, ...)
 {
 	int i = 0, j = 0, count = 0;
-
+	char tmp;
 	va_list args;
-
-	format_spec forms[] = {
-		{'d', put_d},
-		{'s', put_s},
-		{'c', put_c},
-		{'\0', NULL}};
+	format_spec forms[] = {{'c', put_c}, {'s', put_s}, {'d', put_d}, {'\0', NULL}};
 
 	va_start(args, format);
-
 	while (format[i])
 	{
-		if (format[i] == '\\' && format[i + 1] == '%')
+		if (format[i] == '%')
 		{
-			_putchar('\\');
-			_putchar('%');
-			count += 2;
-			i += 2;
-			continue;
-		}
-		else if (format[i] == '%')
-		{
-			i++;
-			if (format[i] == '%')
+			if (format[i + 1] == '%')
 			{
 				_putchar('%');
-				count++;
 				i++;
-				continue;
+				count++;
 			}
-			for (j = 0; forms[j].spec; j++)
+			else
 			{
-				if (format[i] == forms[j].spec)
+				tmp = check_format(format[i + 1]);
+				if (tmp)
 				{
-					count += forms[j].form(args);
-					break;
+					i++;
+					for (j = 0; forms[j].spec; j++)
+					{
+						if (tmp == forms[j].spec)
+						{
+							count += forms[j].form(args);
+							break;
+						}
+					}
+				}
+				else
+				{
+					_putchar(format[i]);
+					count++;
 				}
 			}
 		}
@@ -56,5 +71,6 @@ int _printf(const char *format, ...)
 		}
 		i++;
 	}
+	va_end(args);
 	return (count);
 }
