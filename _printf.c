@@ -29,7 +29,8 @@ int _printf(const char *format, ...)
 	int i = 0, j = 0, count = 0;
 	char tmp;
 	va_list args;
-	format_spec forms[] = {{'c', put_c}, {'s', put_s}, {'d', put_d}, {'b', put_b}, {'\0', NULL}};
+
+	format_spec forms[] = {{'c', put_c}, {'s', put_s}, {'d', put_d}, {'i', put_i}, {'b', put_b}, {'\0', NULL}};
 
 	va_start(args, format);
 	while (format[i])
