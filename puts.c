@@ -82,8 +82,3 @@ int put_d(va_list args)
 
 	return (count);
 }
-
-/*int put_i(va_list args)
-{
-	return (0);
-}*/
