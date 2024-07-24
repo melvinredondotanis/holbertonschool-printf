@@ -7,7 +7,8 @@
  */
 int put_c(va_list args)
 {
-	_putchar(va_arg(args, int));
+	char c = va_arg(args, int);
+	_putchar(c);
 	return (1);
 }
 
@@ -18,8 +19,11 @@ int put_c(va_list args)
  */
 int put_s(va_list args)
 {
-	int i = 0;
 	char *str = va_arg(args, char *);
+	int i = 0;
+
+	if (str == NULL)
+		str = "(null)";
 
 	while (str[i])
 	{
