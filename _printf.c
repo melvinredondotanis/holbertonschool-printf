@@ -8,39 +8,53 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0;
-	int x = 0;
-	int j = 0;
+	int i = 0, j = 0, count = 0;
+
 	va_list args;
 
 	format_spec forms[] = {
 		{'d', put_d},
 		{'s', put_s},
-		{'c', put_s},
+		{'c', put_c},
 		{'\0', NULL}};
 
 	va_start(args, format);
 
 	while (format[i])
 	{
-		if (format[i] == '%')
+		if (format[i] == '\\' && format[i + 1] == '%')
+		{
+			_putchar('\\');
+			_putchar('%');
+			count += 2;
+			i += 2;
+			continue;
+		}
+		else if (format[i] == '%')
 		{
 			i++;
-			for (; forms[j].spec; j++)
+			if (format[i] == '%')
 			{
-				if (forms[j].spec == format[i])
+				_putchar('%');
+				count++;
+				i++;
+				continue;
+			}
+			for (j = 0; forms[j].spec; j++)
+			{
+				if (format[i] == forms[j].spec)
 				{
-					forms[j].form(args);
+					count += forms[j].form(args);
 					break;
 				}
 			}
 		}
 		else
+		{
 			_putchar(format[i]);
-		x++;
+			count++;
+		}
 		i++;
-
 	}
-	va_end(args);
-	return (x);
+	return (count);
 }

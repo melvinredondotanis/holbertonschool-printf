@@ -1,6 +1,17 @@
 #include "main.h"
 
 /**
+ * put_c - function that prints a character
+ * @args: arguments to print
+ * Return: number of characters printed
+ */
+int put_c(va_list args)
+{
+	_putchar(va_arg(args, int));
+	return (1);
+}
+
+/**
  * put_s - function that prints a string
  * @args: arguments to print
  * Return: number of characters printed
@@ -68,7 +79,7 @@ int put_d(va_list args)
 	return (count);
 }
 
-int put_i(va_list args)
+/*int put_i(va_list args)
 {
 	return (0);
-}
+}*/
