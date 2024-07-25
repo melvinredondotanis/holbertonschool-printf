@@ -1,10 +1,9 @@
 #include "main.h"
-#include <limits.h>
 
 /**
- * put_d - function that prints a decimal number
- * @args: arguments to print
- * Return: number of characters printed
+ * numneg - function that prints a negative number
+ * @numa: pointer to the number
+ * @counta: pointer to the count
  */
 void numneg(int *numa, int *counta)
 {
