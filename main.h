@@ -17,6 +17,7 @@ typedef struct format_spec
 	int (*form)(va_list);
 } format_spec;
 
+char check_format(char format);
 int put_c(va_list args);
 int put_s(va_list args);
 int put_d(va_list args);
