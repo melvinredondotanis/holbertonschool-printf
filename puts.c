@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <limits.h>
 /**
  * put_c - function that prints a character
  * @args: arguments to print
@@ -49,8 +49,17 @@ int put_d(va_list args)
 	if (num < 0)
 	{
 		_putchar('-');
-		num = -num;
-		count++;
+		if (num == INT_MIN)
+		{
+			_putchar('2');
+			num = 147483648;
+			count += 2;
+		}
+		else
+		{
+			num = -num;
+			count++;
+		}
 	}
 
 	if (num == 0)
