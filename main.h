@@ -25,5 +25,5 @@ int put_b(va_list args);
 int put_prct(va_list args);
 int _printf(const char *format, ...);
 int _putchar(char c);
-
+void numneg(int *numa, int *counta);
 #endif
