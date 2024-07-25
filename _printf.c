@@ -11,13 +11,21 @@ int _printf(const char *format, ...)
 {
 	int i = 0;
 	int j = 0;
+	int x = 0;
 	va_list args;
 
 	format_t forms[] = {
-		{'d', put_d},
-		{'s', put_str},
 		{'c', put_str},
-		{'i', put_d},
+		{'d', put_d},
+		{'e', put_e},
+		{'f', put_f},
+		{'g', put_g},
+		{'i', put_i},
+		{'o', put_o},
+		{'s', put_str},
+		{'u', put_u},
+		{'x', put_x},
+		{'%', put_%},
 		{'\0', NULL}
 	};
 
@@ -39,9 +47,10 @@ int _printf(const char *format, ...)
 		}
 		else
 			putchar(format[i]);
+		x++;
 		i++;
 
 	}
 	va_end(args);
-	return (0);
+	return (x);
 }
