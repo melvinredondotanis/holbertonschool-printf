@@ -102,7 +102,7 @@ int put_b(va_list args)
 	if (n == 0)
 	{
 		_putchar('0');
-		return (i);
+		return (1);
 	}
 
 	while (n > 0)
