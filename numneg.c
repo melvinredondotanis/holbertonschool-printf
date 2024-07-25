@@ -13,11 +13,11 @@ void numneg(int *numa, int *counta)
 	{
 		_putchar('2');
 		*numa = 147483648;
-		counta += 2;
+		*counta += 2;
 	}
 	else
 	{
 		*numa = -(*numa);
-		counta++;
+		*counta += 1;
 	}
 }
