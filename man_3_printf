@@ -1,0 +1,36 @@
+.TH man_3_printf 3 "Jully 2024" "Holberton School" "Function Manual"
+
+.SH NAME
+.B _printf
+- a simple implementation of printf function for Holberton School project.
+
+.SH SYNOPSIS
+int _printf(const char *format, ...);
+
+.SH DESCRIPTION
+Function produces output according to a format. We handle the conversion specifiers described in OPTIONS.
+
+.TP
+Do not duplicate the buffer handling of the C library printf function. Avoid handling flag characters, field width, precision, and length modifiers.
+
+.SH OPTIONS
+.B %c
+- Prints a character. The int argument is converted to an unsigned char.
+.br
+.B %s
+- Prints a string. The const char * argument is a pointer to an array of character type (pointer to a string).  Characters  from the  array are written up to (but not including) a terminating null byte ('\0').
+.br
+.B %d
+- Prints a number in decimal. The  int  argument is converted to signed decimal notation.
+.br
+.B %i
+- Prints a number as integer.
+.br
+.B %b
+- Prints a binary number. The int argument is converted to binary notation.
+
+.SH RETURN VALUES
+The number of characters printed (excluding tha null byte used to end output to strings). Write output to stdout, the standart output stream.
+
+.SH AUTHOR
+Written by Melvin Redondo--Tanis and Xavier Sanchez.
