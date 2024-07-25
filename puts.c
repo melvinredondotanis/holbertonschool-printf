@@ -1,5 +1,5 @@
 #include "main.h"
-#include <limits.h>
+
 /**
  * put_c - function that prints a character
  * @args: arguments to print
@@ -58,16 +58,13 @@ int put_d(va_list args)
 	else
 	{
 		temp = num;
-
 		while (temp != 0)
 		{
 			temp /= 10;
 			num_digits++;
 		}
-
 		for (i = 1; i < num_digits; i++)
 			divisor *= 10;
-
 		while (divisor != 0)
 		{
 			digit = num / divisor;
@@ -77,7 +74,6 @@ int put_d(va_list args)
 			count++;
 		}
 	}
-
 	return (count);
 }
 
@@ -88,15 +84,14 @@ int put_d(va_list args)
  */
 int put_b(va_list args)
 {
-	int n = va_arg(args, unsigned int);
+	unsigned int n = va_arg(args, unsigned int);
 	int i = 0, j = 0, count = 0;
-
 	int binary[32];
 
 	if (n == 0)
 	{
 		_putchar('0');
-		return (i);
+		return (1);
 	}
 
 	while (n > 0)

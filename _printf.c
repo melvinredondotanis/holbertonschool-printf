@@ -13,12 +13,13 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	format_spec forms[] = {	{'c', put_c}, {'s', put_s},
-		{'d', put_d}, {'i', put_d},
-		{'b', put_b}, {'%', put_prct}, {'\0', NULL}};
+		{'d', put_d}, {'i', put_d}, {'b', put_b}, {'%', put_prct}, {'\0', NULL}};
 
 	va_start(args, format);
 	while (format[i])
 	{
+		if (format[i] == '%' && !format[i + 1])
+			return (-1);
 		if (format[i] == '%')
 		{
 			tmp = check_format(format[i + 1]);
