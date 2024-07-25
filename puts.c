@@ -45,22 +45,11 @@ int put_d(va_list args)
 	int i = 0, count = 0, num_digits = 0, digit = 0, temp = 0;
 	int divisor = 1;
 	int num = va_arg(args, int);
+	int *numa = &num;
+	int *counta = &count;
 
 	if (num < 0)
-	{
-		_putchar('-');
-		if (num == INT_MIN)
-		{
-			_putchar('2');
-			num = 147483648;
-			count += 2;
-		}
-		else
-		{
-			num = -num;
-			count++;
-		}
-	}
+		numneg(numa, counta);
 	if (num == 0)
 	{
 		_putchar('0');

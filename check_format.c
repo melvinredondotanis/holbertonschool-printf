@@ -17,3 +17,5 @@ char check_format(char format)
 	}
 	return (0);
 }
+
+
