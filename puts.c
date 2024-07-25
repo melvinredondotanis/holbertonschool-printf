@@ -17,6 +17,7 @@ char check_format(char format)
 	}
 	return (0);
 }
+
 /**
  * put_c - function that prints a character
  * @args: arguments to print
