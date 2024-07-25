@@ -37,30 +37,21 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			if (format[i + 1] == '%')
+			tmp = check_format(format[i + 1]);
+			if (tmp)
 			{
-				_putchar('%');
 				i++;
-				count++;
+				for (j = 0; forms[j].spec; j++)
+					if (tmp == forms[j].spec)
+					{
+						count += forms[j].form(args);
+						break;
+					}
 			}
 			else
 			{
-				tmp = check_format(format[i + 1]);
-				if (tmp)
-				{
-					i++;
-					for (j = 0; forms[j].spec; j++)
-						if (tmp == forms[j].spec)
-						{
-							count += forms[j].form(args);
-							break;
-						}
-				}
-				else
-				{
-					_putchar(format[i]);
-					count++;
-				}
+				_putchar(format[i]);
+				count++;
 			}
 		}
 		else
