@@ -1,3 +1,4 @@
 !main.h
+main.c
 *.out
 *.h.gch

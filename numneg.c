@@ -2,21 +2,21 @@
 
 /**
  * numneg - function that prints a negative number
- * @numa: pointer to the number
- * @counta: pointer to the count
+ * @num: pointer to the number
+ * @count: pointer to the count
  */
-void numneg(int *numa, int *counta)
+void numneg(int *num, int *count)
 {
 	_putchar('-');
-	if (*numa == INT_MIN)
+	if (*num == INT_MIN)
 	{
 		_putchar('2');
-		*numa = 147483648;
-		*counta += 2;
+		*num = 147483648;
+		*count += 2;
 	}
 	else
 	{
-		*numa = -(*numa);
-		*counta += 1;
+		*num = -(*num);
+		*count += 1;
 	}
 }
