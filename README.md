@@ -2,7 +2,7 @@
 This project is a group project for Holberton School that aims to reproduce the functionalities of the printf function from the standard C library. The function will be able to print characters, strings, integers, and binary numbers to the standard output stream.
 
 ## Flow Chart
-![Flow Chart]("img/flow_chart.jpg")
+![Flow Chart](img/flow_chart.jpg)
 
 ## Usage
 The function will be used this way:
