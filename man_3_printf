@@ -28,9 +28,25 @@ Do not duplicate the buffer handling of the C library printf function. Avoid han
 .br
 .B %b
 - Prints a binary number. The int argument is converted to binary notation.
+.br
+.B %%
+- Prints a percent sign.
 
 .SH RETURN VALUES
 The number of characters printed (excluding tha null byte used to end output to strings). Write output to stdout, the standart output stream.
+
+.SH EXAMPLES
+.B #include main.h
+.br
+.B int main(void)
+.br
+.B {
+.br
+.B 	_printf("Hello, Holberton");
+.br
+.B 	return (0);
+.br
+.B }
 
 .SH AUTHOR
 Written by Melvin Redondo--Tanis and Xavier Sanchez.
