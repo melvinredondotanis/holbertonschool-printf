@@ -1,6 +1,22 @@
 # holbertonschool-printf
 This project is a group project for Holberton School that aims to reproduce the functionalities of the printf function from the standard C library. The function will be able to print characters, strings, integers, and binary numbers to the standard output stream.
 
+## Requirements
+**This requirements are imposed by Holberton School for this project.**
+*   All files will be compiled on Ubuntu 20.04 LTS using `gcc` with the options `-Wall -Werror -Wextra -pedantic -std=gnu89`.
+*   The code should follow the `Betty` style and will be checked using [betty-style.pl](https://github.com/hs-hq/Betty/blob/master/betty-style.pl) and [betty-doc.pl](https://github.com/hs-hq/Betty/blob/master/betty-doc.pl).
+*   Global variables are not allowed.
+*   Each file should have no more than 5 functions.
+
+Authorized functions and macros:
+*   `write`
+*   `malloc`
+*   `free`
+*   `va_start`
+*   `va_end`
+*   `va_copy`
+*   `va_arg`
+
 ## Flow Chart
 ![Flow Chart](img/flow_chart.jpg)
 
@@ -31,6 +47,7 @@ To access the documentation for the _printf function, run the following command:
 ```bash
 man ./man_3_printf
 ```
+![Man](img/man.png)
 
 ## Authors
 - [Melvin Redondo--Tanis]("https://melvin.redondotanis.com")
